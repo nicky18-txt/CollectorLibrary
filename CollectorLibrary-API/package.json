@@ -3,15 +3,26 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "create:DB": "sequelize db:create",
+    "db:migrate": "sequelize db:migrate",
+    "db:m:undo": "sequelize db:migrate:undo:all"
+
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^17.3.1",
     "express": "^4.22.1",
     "http-errors": "~1.6.3",
     "morgan": "^1.10.1",
     "nodemon": "^3.1.11",
-    "pug": "^2.0.4"
+    "pg": "^8.18.0",
+    "pg-hstore": "^2.3.4",
+    "pug": "^2.0.4",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.5"
   }
 }
