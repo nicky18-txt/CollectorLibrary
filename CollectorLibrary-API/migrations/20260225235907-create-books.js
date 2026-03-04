@@ -20,7 +20,8 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       genre: {
         type: Sequelize.STRING
@@ -32,7 +33,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       page_count: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
