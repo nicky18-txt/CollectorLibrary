@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "create:DB": "sequelize db:create",
-    "db:migrate": "sequelize db:migrate",
-    "db:m:undo": "sequelize db:migrate:undo:all"
-
+    "create:DB": "sequelize-cli db:create",
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:m:undo": "sequelize-cli db:migrate:undo:all",
+    "db:seed": "sequelize-cli db:seed:all",
+    "db:seed:undo": "sequelize-cli db:seed:undo:all"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -20,7 +21,9 @@
     "pg": "^8.18.0",
     "pg-hstore": "^2.3.4",
     "pug": "^2.0.4",
-    "sequelize": "^6.37.7"
+    "sequelize": "^6.37.7",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "sequelize-cli": "^6.6.5"

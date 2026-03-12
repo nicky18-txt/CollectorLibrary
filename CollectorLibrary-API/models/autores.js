@@ -17,9 +17,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Autores.init({
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
-    birthyear: DataTypes.INTEGER,
+    birthYear: DataTypes.INTEGER,
     nationality: DataTypes.STRING
   }, {
     sequelize,
