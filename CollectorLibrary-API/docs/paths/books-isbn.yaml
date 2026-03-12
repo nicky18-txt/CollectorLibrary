@@ -1,0 +1,44 @@
+get:
+  summary: Get a book by ISBN
+  tags: [ Books ]
+  parameters:
+  - name: isbn
+    in: path
+    required: true
+    schema:
+      type: string
+    example: "IUER791345"
+  responses:
+    '200':
+      description: Libro encontrado exitosamente
+      content:
+        application/json:
+          example:
+            status: 200
+            message: "Libro encontrado exitosamente"
+            data:
+              id: 2
+              title: "Asesinato en el campo de golf"
+              genre: "Mystery"
+              publication_year: 1923
+              isbn: "IUER791345"
+              page_count: 250
+              autor_id: 1
+              Autore:
+                firstName: "Agatha"
+                lastName: "Christie"
+                nationality: "hondureña"
+    '404':
+      description: No se encontró un libro con ese ISBN
+      content:
+        application/json:
+          example:
+            status: 404
+            message: "No se encontró un libro con ese ISBN"
+    '500':
+      description: Error del servidor
+      content:
+        application/json:
+          example:
+            status: 500
+            message: "connect ECONNREFUSED ip:port"
