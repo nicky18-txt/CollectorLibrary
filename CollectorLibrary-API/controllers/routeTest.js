@@ -1,4 +1,6 @@
 //recibo un request y doy un response. Tambien se puede escribir como req y res
+const { Autores } = require('../models');
+
 let getTest = async(request,response)=>{
     response.json({
         message:"Este es un test de un endpoint",
@@ -6,8 +8,27 @@ let getTest = async(request,response)=>{
     })
 }
 
-const postTest = async()=>{
-
+const postTest = async(request,response)=>{
+    try{
+        const { firstName, lastName, birthYear, nationality } = request.body;
+        
+        const nuevoAutor = await Autores.create({
+            firstName,
+            lastName,
+            birthYear,
+            nationality
+        });
+        
+        response.status(201).json({
+            message:"Autor creado exitosamente",
+            data: nuevoAutor
+        })
+    }catch(error){
+        response.status(500).json({
+            message:"Error al crear autor",
+            error: error.message
+        })
+    }
 }
 
 module.exports={
