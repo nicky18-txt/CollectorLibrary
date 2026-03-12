@@ -1,0 +1,60 @@
+post:
+  summary: Create a new book
+  tags: [ Books ]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            title:
+              type: string
+              example: "La casa de los espíritus"
+            genre:
+              type: string
+              example: "Ficción"
+            publication_year:
+              type: string
+              example: "1982"
+            isbn:
+              type: string
+              example: "9788420490548"
+            page_count:
+              type: integer
+              example: 448
+  responses:
+    '201':
+      description: Libro creado con exito
+      content:
+        application/json:
+          example:
+            status: '201'
+            data:
+              id: 1
+              title: "La casa de los espíritus"
+              publication_year: "1982"
+              genre: "Ficción"
+              isbn: "9788420490548"
+              page_count: 448
+    '406':
+      description: No se recibieron datos o faltan campos obligatorios
+      content:
+        application/json:
+          example:
+            status: '406'
+            message: "No se recibieron datos o faltan campos obligatorios"
+    '404':
+      description: Autor no encontrado
+      content:
+        application/json:
+          example:
+            status: '404'
+            message: "Autor no encontrado"
+    '500':
+      description: Error del servidor
+      content:
+        application/json:
+          example:
+            status: '500'
+            message: "connect ECONNREFUSED ip:port"
